@@ -46,7 +46,7 @@ function foo($fileEx, $content, $name, $email, $username, $token, $repo) {
 	$params="{\"message\": \"init\",\"branch\": \"master\",\"committer\": {\"name\": \"".$name."\",\"email\": \"".$email."\"},\"content\": \"".$content."\"}";
 	date_default_timezone_set('PRC');
 	//利用时间+Md5避免文件名冲突
-        $filename = date('YmdHis', time()).$fileEx;;
+     	$filename = date('YmdHis', time()).mt_rand(10,99).$fileEx;
 	$url='https://api.github.com/repos/'.$username.'/'.$repo.'/contents/'.$filename;
 	$cf = new commonFunction();
 	$headers=array('User-Agent: '.$username, 'Authorization:token '.$token);
