@@ -31,6 +31,8 @@ class commonFunction{
             case "DELETE":curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
                 curl_setopt($ch, CURLOPT_POSTFIELDS,$params);break;
         }
+	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         $file_contents = curl_exec($ch);
 		if(curl_errno($ch)) {
 			echo 'Curl error: ' . curl_error($ch);
